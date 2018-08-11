@@ -1,0 +1,61 @@
+{
+  "cluster": {
+    "name": "cluster-1",
+    "zone": "us-central1-a",
+    "network": "default",
+    "nodePools": [
+      {
+        "name": "default-pool",
+        "initialNodeCount": 2,
+        "config": {
+          "machineType": "g1-small",
+          "imageType": "COS",
+          "diskSizeGb": 20,
+          "diskType": "pd-standard",
+          "preemptible": false
+        },
+        "autoscaling": {
+          "enabled": true
+        },
+        "management": {
+          "autoUpgrade": false,
+          "autoRepair": true,
+          "upgradeOptions": {}
+        }
+      }
+    ],
+    "initialClusterVersion": "1.9.7-gke.5",
+    "masterAuth": {
+      "username": "admin",
+      "clientCertificateConfig": {
+        "issueClientCertificate": true
+      }
+    },
+    "legacyAbac": {
+      "enabled": false
+    },
+    "masterAuthorizedNetworksConfig": {
+      "enabled": false,
+      "cidrBlocks": []
+    },
+    "addonsConfig": {
+      "kubernetesDashboard": {
+        "disabled": true
+      },
+      "httpLoadBalancing": {
+        "disabled": true
+      },
+      "networkPolicyConfig": {
+        "disabled": true
+      }
+    },
+    "networkPolicy": {
+      "enabled": false,
+      "provider": "CALICO"
+    },
+    "subnetwork": "default",
+    "ipAllocationPolicy": {
+      "useIpAliases": false
+    }
+  }
+}
